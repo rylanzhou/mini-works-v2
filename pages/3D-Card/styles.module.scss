@@ -1,0 +1,140 @@
+$shadow: rgba(0, 0, 0, 0.2);
+$gray: #585858;
+$transition: all 0.75s ease;
+
+.body {
+  * {
+    box-sizing: border-box;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  perspective: 500px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+  .card {
+    height: 50rem;
+    width: 35rem;
+    padding: 0 5rem;
+    border-radius: 30px;
+    transition: $transition;
+    transform-style: preserve-3d;
+    transform: rotateX(0) rotateY(0);
+    box-shadow: 0 20px 20px $shadow, 0 0 50px $shadow;
+
+    .sneaker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 20rem;
+
+      .circle {
+        position: absolute;
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        background: linear-gradient(to right, coral, steelblue);
+      }
+
+      img {
+        z-index: 2;
+        width: 20rem;
+        transform: translateZ(0) rotateZ(0);
+        transition: $transition;
+      }
+    }
+
+    .info {
+      h1 {
+        font-size: 3rem;
+        transform: translateZ(0);
+        transition: $transition;
+      }
+
+      h3 {
+        padding: 2rem 0;
+        font-size: 1.3rem;
+        color: $gray;
+        font-weight: lighter;
+        text-transform: uppercase;
+        transition: $transition;
+        transform: translateZ(0);
+      }
+
+      .sizes {
+        display: flex;
+        justify-content: space-between;
+        transition: $transition;
+        transform: translateZ(0);
+
+        button {
+          padding: 0.5rem 2rem;
+          border: none;
+          background: none;
+          outline: none;
+          border-radius: 30px;
+          font-weight: bold;
+          color: $gray;
+          box-shadow: 0 5px 10px $shadow;
+          cursor: pointer;
+
+          &.active {
+            color: white;
+            background-color: $gray;
+          }
+        }
+      }
+
+      .purchase {
+        margin-top: 5rem;
+        transition: $transition;
+        transform: translateZ(0);
+
+        button {
+          width: 100%;
+          padding: 1rem 0;
+          border: none;
+          border-radius: 30px;
+          color: white;
+          font-weight: bolder;
+          font-size: 1.5rem;
+          background-color: #f54642;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &.mouse-in {
+    .card {
+      transition: none;
+
+      .sneaker img {
+        transform: translateZ(200px) rotateZ(-45deg);
+      }
+
+      .info {
+        h1 {
+          transform: translateZ(150px);
+        }
+        h3 {
+          transform: translateZ(125px);
+        }
+        .sizes {
+          transform: translateZ(100px);
+        }
+        .purchase {
+          transform: translateZ(100px);
+        }
+      }
+    }
+  }
+}
