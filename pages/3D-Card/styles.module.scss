@@ -2,18 +2,6 @@ $shadow: rgba(0, 0, 0, 0.2);
 $gray: #585858;
 $transition: all 0.75s ease;
 
-.body {
-  * {
-    box-sizing: border-box;
-  }
-
-  display: flex;
-  align-items: center;
-  perspective: 1000px;
-  justify-content: center;
-  min-height: 100vh;
-}
-
 .container {
   display: flex;
   justify-content: center;

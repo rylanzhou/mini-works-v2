@@ -20,7 +20,7 @@ export default function Card() {
   };
 
   return (
-    <div className={styles.body}>
+    <div className="body">
       <div
         className={`${styles.container} ${isInCard ? styles['mouse-in'] : ''}`}
         onMouseMove={(e) => handleMousemove(e)}

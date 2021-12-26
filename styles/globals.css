@@ -7,3 +7,11 @@ body {
   font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+.body {
+  display: flex;
+  align-items: center;
+  perspective: 1000px;
+  justify-content: center;
+  min-height: 100vh;
+}
