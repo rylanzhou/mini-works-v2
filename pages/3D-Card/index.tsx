@@ -1,15 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './styles.module.scss';
 
-const RATIO = 25;
+const RATIO = 10;
 
-export default () => {
+export default function Card() {
   const [activeButton, setActiveButton] = useState(0);
   const [isInCard, setIsInCard] = useState(false);
-
-  useEffect(() => {
-    console.log(isInCard);
-  }, [isInCard]);
 
   const cardRef = useRef<HTMLDivElement>();
 
@@ -29,7 +25,10 @@ export default () => {
         className={`${styles.container} ${isInCard ? styles['mouse-in'] : ''}`}
         onMouseMove={(e) => handleMousemove(e)}
         onMouseEnter={() => setIsInCard(true)}
-        onMouseLeave={() => setIsInCard(false)}
+        onMouseLeave={() => {
+          cardRef.current.style.transform = `rotateY(0) rotateX(0)`;
+          setIsInCard(false);
+        }}
       >
         <div className={styles.card} ref={cardRef}>
           <div className={styles.sneaker}>
@@ -63,4 +62,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

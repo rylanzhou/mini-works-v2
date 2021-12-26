@@ -1,0 +1,27 @@
+.container {
+  height: 100vh;
+  overflow-y: auto;
+  background: linear-gradient(#667eea 0%, #764ba2 100%);
+
+  .header {
+    height: 10rem;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      font-weight: normal;
+      color: white;
+    }
+  }
+
+  iframe {
+    width: 200px;
+    height: 200px;
+    transition: all 0.5s ease;
+
+    &:hover {
+      width: 90vw;
+      height: 90vh;
+    }
+  }
+}
