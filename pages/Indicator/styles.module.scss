@@ -1,0 +1,122 @@
+$background: #222327;
+$highlight: #2196f3;
+
+@mixin calcIndicatorPosition {
+}
+.navigation {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 25rem;
+  height: 3.5rem;
+  border-radius: 0.8rem;
+  background: $background;
+
+  ul {
+    display: flex;
+    width: 21rem;
+
+    li {
+      list-style: none;
+      position: relative;
+      width: 4.2rem;
+      height: 3.5rem;
+      z-index: 2;
+
+      a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+
+        .icon {
+          position: relative;
+          display: block;
+          line-height: 4rem;
+          font-size: 1.5rem;
+          color: white;
+          transition: 0.5s;
+        }
+
+        .text {
+          position: absolute;
+          padding: 2px 7px;
+          border-radius: 0.8rem;
+          font-weight: 400;
+          font-size: 0.75rem;
+          letter-spacing: 0.05rem;
+          color: #fff;
+          background-color: $highlight;
+          opacity: 0;
+          transform: translateY(1rem);
+          transition: 0.5s;
+        }
+      }
+
+      &.active {
+        a {
+          .icon {
+            color: $highlight;
+            transform: translateY(-50%);
+          }
+
+          .text {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}).active ~ .indicator {
+          transform: translateX(calc(4.2rem * (#{$i} - 1)));
+        }
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      top: -60%;
+      width: 4.2rem;
+      height: 4.2rem;
+      border-radius: 50%;
+      background-color: $background;
+      z-index: 1;
+      transition: 0.5s;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.3rem;
+        left: -1.7rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        // Create smooth connection with indicator and navbar
+        box-shadow: 1rem 1.2rem $background;
+        background: transparent;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0.3rem;
+        right: -1.7rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        box-shadow: -1rem 1.2rem $background;
+        background: transparent;
+      }
+    }
+  }
+}
