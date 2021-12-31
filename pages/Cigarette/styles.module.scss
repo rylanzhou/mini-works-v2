@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  font-family: 'Poppins';
+
+  .cigarette {
+    animation: rotate 15s linear infinite;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+
+    span {
+      position: absolute;
+      font-size: 1.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.75rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.25);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      transform: translate(-50%, -50%) rotateX(calc(var(--i) * 36deg)) translateZ(32px);
+
+      i {
+        font-style: normal;
+        color: #ec9535;
+
+        &:first-child:after {
+          content: 'l';
+          text-transform: lowercase;
+          color: #ccc;
+        }
+
+        &:last-child {
+          color: red;
+          filter: blur(3px);
+          text-shadow: -4px 0 2px #000, 8px 0 20px red, 8px 0 24px red, 8px 0 0 #222, 12px 0 #555,
+            16px 0 #666, 20px 0 #888, 24px 0 #999;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
