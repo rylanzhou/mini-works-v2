@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+
+.container {
+  display: flex;
+  gap: 0.7rem;
+  transform-style: preserve-3d;
+  transform: rotateY(30deg) rotateX(10deg);
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .text {
+    position: relative;
+    width: 7.14rem;
+    height: 7.14rem;
+    transform-style: preserve-3d;
+    transition: 2.5s ease-in-out;
+    transition-delay: calc(0.25s * var(--j));
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #373737;
+      transform-origin: left;
+      transform: rotateY(90deg) translateX(-3.57rem);
+    }
+
+    &:last-child {
+      span {
+        background: linear-gradient(#29c040, #32ed4e);
+        color: #333;
+      }
+
+      &::before {
+        background-color: #29ab3c;
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 4rem;
+      color: white;
+      background: linear-gradient(#434343, #535353);
+      transform-style: preserve-3d;
+      transform: rotateX(calc(90deg * var(--i))) translateZ(3.57rem);
+    }
+  }
+
+  &:hover .text {
+    transform: rotateX(-360deg);
+
+    &:last-child {
+      transform: rotateX(630deg);
+    }
+  }
+}
