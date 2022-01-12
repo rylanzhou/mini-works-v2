@@ -1,0 +1,141 @@
+$blue: #0079d8;
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20rem;
+    aspect-ratio: 1.5;
+  }
+}
+
+.loading0 {
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top: 3px solid $blue;
+  border-left: 3px solid $blue;
+  animation: rotate0 2s infinite ease-in-out;
+}
+
+@keyframes rotate0 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading1 {
+  position: relative;
+  width: 100px;
+  aspect-ratio: 1;
+  transform: rotate(-360deg);
+  animation: rotate1 45s infinite linear;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top: 3px solid $blue;
+    border-left: 3px solid $blue;
+    transform: rotate(-720deg);
+    animation: rotate1 2s infinite ease-out;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    border: 7px solid transparent;
+    border-top: 7px solid #fff;
+    border-left: 7px solid #fff;
+    transform: rotate(-720deg);
+    animation: rotate1 2s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate1 {
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.loading2 {
+  width: 100px;
+  aspect-ratio: 1;
+  animation: rotate0 2s linear infinite;
+
+  .path {
+    stroke-dasharray: 1, 400;
+    stroke-dashoffset: 0;
+    animation: dash 2s ease-in-out infinite;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 400;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 240, 400;
+    stroke-dashoffset: -90px;
+  }
+  100% {
+    stroke-dasharray: 240, 400;
+    stroke-dashoffset: -307px; // radius = 50, 50 * 2 * PI = 314
+  }
+}
+
+// CSS @property, to make conic-gradient smoothly change in animation
+@property --per {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 10%;
+}
+
+.loading3 {
+  position: relative;
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: rotate0 11s infinite linear;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: conic-gradient(transparent, transparent var(--per), $blue var(--per), $blue);
+    // Use black to indicate a complete mask
+    mask: radial-gradient(transparent, transparent 47px, black 47px, black);
+    animation: change 2s infinite cubic-bezier(0.57, 0.29, 0.49, 0.76);
+  }
+}
+
+@keyframes change {
+  50% {
+    transform: rotate(270deg);
+    --per: 98%;
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
