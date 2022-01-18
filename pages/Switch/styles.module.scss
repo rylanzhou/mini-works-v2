@@ -1,0 +1,92 @@
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 120px;
+  height: 60px;
+  // background-color: #777;
+  cursor: pointer;
+  transform: scale(2);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #444;
+  }
+
+  input {
+    position: absolute;
+    appearance: none;
+
+    &:checked ~ .icon {
+      left: 60px;
+
+      svg {
+        color: #00ffe2;
+        filter: drop-shadow(0 0 10px #00ffe2);
+      }
+    }
+  }
+
+  .icon {
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    transition: 0.5s;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 100%;
+      background: linear-gradient(#fff, #fff, #e3e3e3);
+      filter: blur(1px);
+      z-index: 1;
+    }
+
+    &::after {
+      left: unset;
+      right: -1px;
+      background: unset;
+      background-color: #9c9c9c;
+    }
+
+    .shadow {
+      position: absolute;
+      top: 30px;
+      left: -12px;
+      width: 84.85px; // The diagonal of the sqaure
+      height: 300px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent, transparent);
+      transform-origin: top;
+      transform: rotate(-45deg);
+      pointer-events: none;
+    }
+
+    .icon-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#dbdae1, #a3aaba);
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1), 15px 15px 15px rgba(0, 0, 0, 0.1),
+        20px 20px 20px rgba(0, 0, 0, 0.1), 30px 30px 30px rgba(0, 0, 0, 0.1), inset 1px 1px 2px #fff;
+
+      svg {
+        font-size: 1.5rem;
+        color: #555;
+        transition: 0.5s;
+      }
+    }
+  }
+}
