@@ -1,0 +1,116 @@
+.section {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00, #f0f);
+    clip-path: circle(30% at right 70%);
+  }
+
+  &::after {
+    background: linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(20% at 10% 10%);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+
+  .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: 0.5s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+
+      .content {
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+
+      .sci li {
+        opacity: 1;
+        transform: translateY(30px);
+      }
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0.5;
+      transition: 0.5s;
+
+      .img-box {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 10px solid rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+      }
+
+      .content-box {
+        margin: 20px 0 10px;
+        line-height: 1.1rem;
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
+        color: #fff;
+
+        h3 {
+          text-transform: uppercase;
+          span {
+            font-size: 0.9rem;
+            font-weight: 300;
+            text-transform: none;
+          }
+        }
+      }
+    }
+
+    .sci {
+      position: absolute;
+      bottom: 50px;
+      display: flex;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin: 0 10px;
+        opacity: 0;
+        transform: translateY(60px);
+        transition: 0.5s;
+        transition-delay: calc(0.1s * var(--i));
+
+        a {
+          color: #fff;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
