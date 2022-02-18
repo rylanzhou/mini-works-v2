@@ -38,7 +38,8 @@ const links = [
   'Menu-Expand',
   'Rotate-Text',
   'Switch',
-  'Windows-Loading',
+  'Learning-Masked-Buttons',
+  'Learning-Windows-Loading',
 ];
 
 export default function Home() {
