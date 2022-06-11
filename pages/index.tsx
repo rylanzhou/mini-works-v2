@@ -38,6 +38,7 @@ const links = [
   'Menu-Expand',
   'Rotate-Text',
   'Switch',
+  'Delete-Button',
   'Learning-Masked-Buttons',
   'Learning-Windows-Loading',
 ];
