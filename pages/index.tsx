@@ -38,6 +38,7 @@ const links = [
   'Indicator',
   'Keyboard',
   'Menu-Expand',
+  'Menu-Hover',
   'Rotate-Text',
   'Switch',
   'Learning-Masked-Buttons',
