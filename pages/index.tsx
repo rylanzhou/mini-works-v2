@@ -28,6 +28,7 @@ import styles from './styles.module.scss';
 
 const links = [
   '3D-Card',
+  '3D-Menu',
   'Calculator',
   'Cigarette',
   'Circular-Progress',
