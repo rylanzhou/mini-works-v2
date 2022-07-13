@@ -43,6 +43,7 @@ const links = [
   'Rotate-Text',
   'Switch',
   'Text-Focus-Effect',
+  'TikTok-Logo',
   'Learning-Masked-Buttons',
   'Learning-Windows-Loading',
 ];

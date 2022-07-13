@@ -1,0 +1,56 @@
+$light-blue: #08fff9;
+$light-red: #f00044;
+
+@mixin logo($color) {
+  background: 
+      // left top 1/4 circle
+    radial-gradient(
+        /* left 100% 100% is the size, right 100% 100% is the position */ 100% 100% at 100% 100%,
+        /* From center to 50% of radius is transparent */ transparent 0 50%,
+        /* From 50% to 100% of radius is colored */ $color 50% 100%,
+        /* The gradient ends with transparent */ transparent
+      )
+      left 52%/41% 36% no-repeat,
+    // left bottom half circle
+    radial-gradient(50% 100% at top, transparent 44%, $color 45% 98%, transparent) 0 100%/73% 31%
+      no-repeat,
+    // vertical bar
+    linear-gradient($color, $color) 66% 0/20% 70% no-repeat,
+    // Right top 1/4 circle
+    radial-gradient(100% 100% at 100% 0, transparent 0 58%, $color 58.5% 99%, transparent) 100% 0/47%
+      41.8% no-repeat;
+}
+
+.tiktok {
+  display: grid;
+  width: 100px;
+  aspect-ratio: 0.87; // wh ratio is 0.87
+  border-radius: 25%;
+  // Top and bottom has 20px padding
+  // The logo itself is not a square, so left-right padding should increase to make the whole a square
+  padding: 20px calc(20px + 100px / 0.87 * 0.13 / 2);
+  background-color: black;
+
+  &::before {
+    content: '';
+    grid-area: 1/1;
+    @include logo($light-blue);
+    transform: translate(calc(var(--x, 0%) - 3%), calc(var(--x, 0%) - 3%));
+  }
+
+  &::after {
+    content: '';
+    grid-area: 1/1;
+    @include logo($light-red);
+    transform: translate(calc(3% - var(--x, 0%)), calc(3% - var(--x, 0%)));
+    mix-blend-mode: lighten;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      --x: 0.1%;
+      transition: transform cubic-bezier(0.5, 300, 0.5, -150) 0.3s;
+    }
+  }
+}
