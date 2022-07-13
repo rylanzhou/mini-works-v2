@@ -42,6 +42,7 @@ const links = [
   'Menu-Hover',
   'Rotate-Text',
   'Switch',
+  'Text-Focus-Effect',
   'Learning-Masked-Buttons',
   'Learning-Windows-Loading',
 ];

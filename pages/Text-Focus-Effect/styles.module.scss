@@ -1,0 +1,47 @@
+.text {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  color: white;
+  font-size: 8em;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    padding: 0 5px;
+    filter: blur(10px);
+    transition: 0.5s;
+
+    &:hover {
+      filter: blur(0);
+      transition: 0;
+
+      i::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 16px;
+        box-shadow: 0 130px white, 92px 130px #fff, 92px 0 #fff;
+        background-color: white;
+      }
+
+      i::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 8px;
+        box-shadow: 0 140px white, 84px 140px #fff, 84px 0 #fff;
+        background-color: white;
+      }
+    }
+
+    i {
+      position: absolute;
+      inset: 0;
+    }
+  }
+}
