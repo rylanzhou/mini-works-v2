@@ -1,0 +1,101 @@
+$red: #ff216d;
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .menu-toggle {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    line-height: 73px;
+    font-size: 3em;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+    color: $red;
+    transition: all 1.5s;
+    cursor: pointer;
+
+    &.active {
+      transform: rotate(225deg);
+
+      & ~ .menu {
+        width: 240px;
+        height: 70px;
+        z-index: 1;
+        transform: translateY(-100px);
+        transition-delay: 0s, 0.5s, 0.5s;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+
+        ul li {
+          opacity: 1;
+          visibility: visible;
+          transition-delay: calc(0.75s + var(--i));
+        }
+
+        &::before {
+          bottom: -6px;
+          transition-delay: 0.5s;
+        }
+      }
+    }
+  }
+
+  .menu {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 70px;
+    z-index: -1;
+    background-color: #fff;
+    transition: transform 0.5s, width 0.5s, height 0.5s;
+    transition-delay: 1s, 0.5s, 0.5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: calc(50% - 8px);
+      bottom: 4px;
+      border-radius: 2px;
+      background-color: #fff;
+      transform: rotate(45deg);
+      transition: 0.5s;
+    }
+
+    ul {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      height: 75px;
+      gap: 40px;
+      list-style: none;
+
+      li {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s;
+        transition-delay: calc(0s + var(--i));
+
+        a {
+          display: block;
+          font-size: 2em;
+          color: #555;
+        }
+
+        &:hover a {
+          color: $red;
+        }
+      }
+    }
+  }
+}
