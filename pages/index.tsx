@@ -41,6 +41,7 @@ const links = [
   'Menu-Expand',
   'Menu-Expand-II',
   'Menu-Hover',
+  'Responsive-Hover',
   'Rotate-Text',
   'Switch',
   'Text-Focus-Effect',
