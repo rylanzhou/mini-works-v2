@@ -32,6 +32,7 @@ const links = [
   'Calculator',
   'Cigarette',
   'Circular-Progress',
+  'Dark-Mode-Menu',
   'Dashboard',
   'Delete-Button',
   'Fingerprint-Scanner',

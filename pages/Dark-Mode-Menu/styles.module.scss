@@ -1,0 +1,150 @@
+.dark-mode {
+  background-color: #222 !important;
+
+  .box {
+    background-color: #292929;
+
+    .profile .text {
+      color: #ddd;
+
+      span {
+        color: #aaa;
+      }
+    }
+
+    .menu {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      li label {
+        span {
+        color: #aaa;
+        }
+
+        .action i {
+          background-color: #666;
+        }
+      }
+    }
+  }
+}
+
+.box {
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  position: relative;
+  width: 300px;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  transition: .5s;
+
+  .profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .img-bx {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .text {
+      line-height: 1.2em;
+      font-weight: 500;
+      color: #333;
+      transition: 0.5s;
+
+      span {
+        font-size: 0.85em;
+        font-weight: 400;
+        color: #555;
+      }
+    }
+  }
+
+  .menu {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+    li {
+      list-style: none;
+      margin: 8px 0;
+
+      label {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #777;
+          user-select: none;
+          cursor: pointer;
+
+          svg {
+            margin-right: 10px;
+          }
+        }
+
+        .action {
+          input {
+            appearance: none;
+
+            &:checked {
+              & ~ i {
+                background-color: #2aa0ff;
+
+                &::before {
+                  left: calc(100% - 12.5px);
+                }
+              }
+            }
+          }
+
+          i {
+            position: relative;
+            width: 30px;
+            height: 15px;
+            border-radius: 15px;
+            background-color: #ddd;
+            transition: 0.5s;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 2.5px;
+              left: 2.5px;
+              width: 10px;
+              height: 10px;
+              border-radius: 10px;
+              background-color: #fff;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              transition: 0.5s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
