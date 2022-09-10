@@ -34,6 +34,7 @@ const links = [
   'Circular-Progress',
   'Dark-Mode-Menu',
   'Dashboard',
+  'Dashboard-II',
   'Delete-Button',
   'Fingerprint-Scanner',
   'Glassmorphism-Card',

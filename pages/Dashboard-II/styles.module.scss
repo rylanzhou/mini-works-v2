@@ -1,0 +1,675 @@
+$primary: #7380ec;
+$danger: #ff7782;
+$success: #41f1b6;
+$warning: #ffbb55;
+$info-dark: #7d8da1;
+$info-light: #dce1eb;
+$primary-variant: #111e88;
+
+$card-border-radius: 2em;
+
+.body {
+  --white: #fff;
+  --dark: #363949;
+  --light: rgba(132, 139, 200, 0.18);
+  --dark-variant: #677483;
+  --background: #f6f6f9;
+  --box-shadow: 0 2em 3em var(--light);
+
+  &.dark {
+    --white: #202528;
+    --dark: #edeffd;
+    --light: rgba(0, 0, 0, 0.4);
+    --dark-variant: #a3bdcc;
+    --background: #181a1e;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  font-size: 14px;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
+  user-select: none;
+  overflow-x: hidden;
+  color: var(--dark);
+
+  a {
+    color: var(--dark);
+  }
+
+  p {
+    color: var(--dark-variant);
+  }
+
+  b {
+    color: var(--dark);
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 0.87em;
+  }
+
+  small {
+    font-size: 0.75em;
+  }
+
+  .primary {
+    color: $primary;
+  }
+
+  .danger {
+    color: $danger;
+  }
+
+  .success {
+    color: $success;
+  }
+
+  .warning {
+    color: $warning;
+  }
+
+  .profile-photo {
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .text-muted {
+    color: $info-dark;
+  }
+
+  .container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8em;
+    grid-template-columns: 16em auto 26em; // left | middle | right
+  }
+
+  // =================== Sidebar =================
+  .aside {
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.4em;
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.8em;
+
+        img {
+          width: 2em;
+          height: 2em;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+      }
+
+      .close {
+        display: none;
+      }
+    }
+
+    .sidebar {
+      position: relative;
+      top: 3em;
+      display: flex;
+      flex-direction: column;
+      height: 86vh;
+
+      a {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        height: 3.7em;
+        margin-left: 2em;
+        font-size: 1.2em;
+        color: $info-dark;
+        transition: all 0.3s ease;
+
+        span {
+          margin-top: 0.2em;
+          font-size: 1.4em;
+          transition: all 0.3s ease;
+        }
+
+        .count {
+          padding: 2px 10px;
+          font-size: 14px;
+          border-radius: 2em;
+          color: var(--white);
+          background-color: $danger;
+        }
+
+        &.active {
+          margin-left: 0;
+          color: $primary;
+          background-color: var(--light);
+
+          span {
+            margin-left: calc(0.5em - 3px);
+          }
+
+          &::before {
+            content: '';
+            width: 6px;
+            height: 100%;
+            background-color: $primary;
+          }
+        }
+
+        &:hover {
+          color: $primary;
+
+          span {
+            margin-left: 1rem;
+          }
+        }
+      }
+
+      h3 {
+        font-weight: 400;
+      }
+    }
+  }
+
+  // =================== Main =================
+  .main {
+    margin-top: 1.4em;
+
+    .date {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.5em 1.6em;
+      border-radius: 0.2em;
+      background-color: var(--light);
+
+      input {
+        background: transparent;
+        color: var(--dark);
+      }
+    }
+
+    .insights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6em;
+
+      h3 {
+        margin: 1em 0 0.6em;
+        font-size: 1.2em;
+      }
+
+      .progress {
+        position: relative;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+
+        svg {
+          width: 7em;
+          height: 7em;
+
+          circle {
+            fill: none;
+            stroke: $primary;
+            stroke-width: 14;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);
+            stroke-dasharray: 110;
+            stroke-dashoffset: 92;
+          }
+        }
+
+        .number {
+          position: absolute;
+          top: -0.2em;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      & > div {
+        margin-top: 1em;
+        padding: 1.8em;
+        border-radius: $card-border-radius;
+        box-shadow: var(--box-shadow);
+        background-color: var(--white);
+        transition: all 0.3s ease;
+
+        i {
+          display: inline-block;
+          width: 2em;
+          height: 2em;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 2.2em;
+          color: var(--white);
+          font-size: 2em;
+        }
+
+        &.sales {
+          i {
+            background-color: $primary;
+          }
+          circle {
+            stroke-dasharray: 200;
+            stroke-dashoffset: -30;
+          }
+        }
+
+        &.expenses {
+          i {
+            background-color: $success;
+          }
+          circle {
+            stroke-dasharray: 80;
+            stroke-dashoffset: 20;
+          }
+        }
+
+        &.income {
+          i {
+            background-color: $danger;
+          }
+          circle {
+            stroke-dasharray: 110;
+            stroke-dashoffset: 35;
+          }
+        }
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        .middle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .recent-order {
+      margin-top: 2em;
+
+      h2 {
+        margin-bottom: 0.8em;
+      }
+
+      table {
+        width: 100%;
+        padding: 1.8em;
+        border-radius: $card-border-radius;
+        box-shadow: var(--box-shadow);
+        text-align: center;
+        background-color: var(--white);
+        transition: all 0.3s ease;
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        tbody tr {
+          td {
+            height: 2.8em;
+            border-bottom: 1px solid var(--light);
+            color: var(--dark-variant);
+          }
+
+          &:last-child td {
+            border: none;
+          }
+        }
+      }
+
+      a {
+        display: block;
+        margin: 1em auto;
+        text-align: center;
+        color: $primary;
+      }
+    }
+  }
+
+  // =================== Right Section ============
+  .right-sec {
+    margin-top: 1.4em;
+
+    .top {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2em;
+
+      button {
+        display: none;
+      }
+
+      .theme-toggler {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 1.6em;
+        width: 4.2em;
+        border-radius: 0.4em;
+        background-color: var(--light);
+        cursor: pointer;
+
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50%;
+          height: 100%;
+          font-size: 1.2em;
+
+          &.active {
+            border-radius: 0.4em;
+            background-color: $primary;
+            color: white;
+          }
+        }
+      }
+
+      .profile {
+        display: flex;
+        gap: 2em;
+        text-align: right;
+      }
+    }
+
+    .recent-updates {
+      margin-top: 1em;
+
+      h2 {
+        margin-bottom: 0.8em;
+      }
+
+      .updates {
+        padding: 1.2em;
+        border-radius: $card-border-radius;
+        box-shadow: var(--box-shadow);
+        transition: all 0.3s ease;
+        background-color: var(--white);
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        .update {
+          display: grid;
+          grid-template-columns: 2.6em auto;
+          gap: 1em;
+          margin-bottom: 1em;
+        }
+      }
+    }
+
+    .sales-analytics {
+      margin-top: 2em;
+
+      h2 {
+        margin-bottom: 0.8em;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: 0.7em;
+        padding: 1.4em 2em;
+        border-radius: 1.2em;
+        font-size: 1.1em;
+        background-color: var(--white);
+        box-shadow: var(--box-shadow);
+        transition: all 0.3s ease;
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        .icon {
+          display: flex;
+          padding: 0.6em;
+          border-radius: 50%;
+          font-size: 1.5em;
+          color: var(--white);
+          background: $primary;
+        }
+
+        &.offline .icon {
+          background-color: $danger;
+        }
+        &.customers .icon {
+          background-color: $success;
+        }
+
+        .right {
+          display: flex;
+          justify-content: space-between;
+          align-items: space;
+          margin: 0;
+          width: 100%;
+        }
+
+        &.add-product {
+          display: flex;
+          align-items: center;
+          border: 2px dashed $primary;
+          background-color: transparent;
+          color: $primary;
+
+          h3 {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .container {
+      width: 94%;
+      grid-template-columns: 7rem auto 23rem;
+    }
+
+    .aside {
+      .logo h2 {
+        display: none;
+      }
+
+      .sidebar {
+        h3 {
+          display: none;
+        }
+
+        a {
+          width: 5.6em;
+
+          &:last-child {
+            margin-top: 1.8em;
+          }
+        }
+      }
+    }
+
+    .main {
+      .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .recent-order {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 94%;
+        margin: 2em 0 0 8.8em;
+
+        table {
+          width: 83vw;
+
+          thead {
+            th:last-child,
+            th:first-child {
+              display: none;
+            }
+          }
+
+          tbody {
+            td:first-child,
+            td:last-child {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .aside {
+      display: none;
+      position: fixed;
+      left: -100%;
+      width: 18em;
+      height: 100vh;
+      padding-right: 1.2em;
+      z-index: 3;
+      box-shadow: 1em 3em 4em var(--light);
+      background-color: var(--white);
+      animation: showMenu 0.4s ease forwards;
+
+      &.is-open {
+        display: block;
+      }
+
+      .top {
+        justify-content: space-between;
+
+        .logo {
+          margin-left: 1em;
+
+          h2 {
+            display: inline;
+          }
+        }
+
+        .close {
+          display: inline-block;
+          margin-top: 0.2em;
+          font-size: 1.8em;
+          cursor: pointer;
+        }
+      }
+
+      .sidebar {
+        h3 {
+          display: inline;
+        }
+
+        a {
+          width: 100%;
+          height: 3.4em;
+        }
+      }
+    }
+
+    .main {
+      margin-top: 8em;
+      padding: 0 1em;
+
+      .recent-order {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+
+        table {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+
+    .right-sec {
+      width: 94%;
+      margin: 0 auto 4rem;
+
+      .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        width: 100%;
+        height: 4.6em;
+        padding: 0 0.8em;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1em 1em var(--light);
+        background-color: var(--white);
+
+        .theme-toggler {
+          position: absolute;
+          left: 66%;
+          width: 4.4em;
+        }
+
+        .profile .info {
+          display: none;
+        }
+
+        button {
+          position: absolute;
+          left: 1em;
+          display: inline-block;
+          background: transparent;
+          cursor: pointer;
+          color: var(--dark);
+
+          span {
+            font-size: 2em;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes showMenu {
+    to {
+      left: 0;
+    }
+  }
+}
