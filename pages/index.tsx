@@ -48,6 +48,7 @@ const links = [
   'Switch',
   'Text-Focus-Effect',
   'TikTok-Logo',
+  'Vertical-Menu',
   'Learning-Masked-Buttons',
   'Learning-Windows-Loading',
 ];
