@@ -94,8 +94,8 @@
 
   .title {
     display: flex;
-    width: 20rem;
-    padding: 5rem 1rem 0 10rem;
+    width: 15rem;
+    padding: 5rem 1rem 0 5rem;
     box-sizing: border-box;
     border-right: 2px solid white;
 
@@ -107,6 +107,7 @@
       text-orientation: sideways;
       text-transform: uppercase;
       letter-spacing: 1rem;
+      white-space: nowrap;
       color: #eee;
 
       &.rylan {
