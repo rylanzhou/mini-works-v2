@@ -39,6 +39,7 @@ const links = [
   'Fingerprint-Scanner',
   'Glassmorphism-Card',
   'Indicator',
+  'Iphone-Dynamic-Island',
   'Keyboard',
   'Login-Form',
   'Menu-Expand',

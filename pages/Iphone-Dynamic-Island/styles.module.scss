@@ -1,0 +1,219 @@
+.box {
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  position: relative;
+  width: 300px;
+  height: 600px;
+  border-radius: 50px;
+  background-color: #666;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background-color: #000;
+    border-radius: 48px;
+  }
+
+  .inner {
+    position: absolute;
+    inset: 3px;
+    display: flex;
+    justify-content: center;
+    border-radius: 48px;
+    border: 10px solid #000;
+    background: url('https://res.cloudinary.com/rylanzhou/image/upload/v1663266551/mini-works/iphone14_hn6z4c.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: 0.5s;
+
+    .island {
+      position: absolute;
+      top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90px;
+      height: 25px;
+      border-radius: 20px;
+      background: black;
+      transition: 0.5s ease-in-out;
+
+      .content {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+
+        .details {
+          display: flex;
+          align-items: center;
+
+          .img {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: #fff;
+            overflow: hidden;
+            transition: 0.5s;
+          }
+
+          p {
+            margin: 0;
+            font-size: 0.6em;
+            color: #fff;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+
+            div {
+              display: none;
+              margin-top: 6px;
+              font-size: 0.6em;
+              visibility: hidden;
+              opacity: 0;
+              color: gray;
+            }
+          }
+        }
+
+        .action {
+          position: relative;
+          display: flex;
+          gap: 12px;
+          color: #fff;
+          transition: 0.5s;
+          opacity: 0;
+
+          .red {
+            color: #fd443b;
+            transform: rotate(135deg);
+            transition: 0.5s;
+          }
+
+          .green {
+            color: #31d059;
+            transition: 0.5s;
+          }
+        }
+      }
+
+      &:hover {
+        width: 200px;
+        height: 25px;
+
+        .details p,
+        .action {
+          visibility: visible;
+          opacity: 1;
+          transition-delay: 0.5s;
+        }
+      }
+
+      &.active {
+        width: 250px;
+        height: 65px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        padding: 0 3px;
+        overflow: hidden;
+
+        .details p,
+        .action {
+          visibility: visible;
+          opacity: 1;
+          transition-delay: 0.25s;
+          color: white;
+        }
+
+        .details {
+          .img {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+          }
+
+          p div {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+
+        .action {
+          .red {
+            margin-right: 12px;
+            background-color: #fd443b;
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 8px #fd443b;
+          }
+
+          .green {
+            margin-right: 8px;
+            background-color: #31d059;
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 8px #31d059;
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .inner {
+      opacity: 1;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    top: 110px;
+    left: -2px;
+    z-index: 10;
+    width: 3px;
+    height: 26px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background: radial-gradient(#ccc, #666, #666, #222);
+
+    &.btn2 {
+      top: 160px;
+      height: 40px;
+    }
+
+    &.btn3 {
+      top: 220px;
+      height: 40px;
+    }
+  }
+
+  .right-btn {
+    position: absolute;
+    top: 170px;
+    right: -2px;
+    z-index: 10;
+    width: 3px;
+    height: 70px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: linear-gradient(#222, #666 10%, #ccc, #666 90%, #222);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    top: 30px;
+    left: 176px;
+    border-radius: 50%;
+    background: radial-gradient(rgb(15, 3, 32), rgba(2, 7, 171, 0.5), rgb(78, 3, 208));
+  }
+}
