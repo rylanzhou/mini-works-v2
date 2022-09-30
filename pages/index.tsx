@@ -45,6 +45,7 @@ const links = [
   'Menu-Expand',
   'Menu-Expand-II',
   'Menu-Hover',
+  'Prettier-Logo',
   'Responsive-Hover',
   'Rotate-Text',
   'Switch',
