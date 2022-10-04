@@ -48,6 +48,7 @@ const links = [
   'Prettier-Logo',
   'Responsive-Hover',
   'Rotate-Text',
+  'Submit-Button',
   'Switch',
   'Text-Focus-Effect',
   'TikTok-Logo',

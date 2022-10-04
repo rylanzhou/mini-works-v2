@@ -1,0 +1,121 @@
+.btn {
+  position: relative;
+  height: 80px;
+  width: 200px;
+  border-radius: 0.25em;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  color: #71dfbe;
+  background-color: #2b2d2f;
+  cursor: pointer;
+
+  // Hide the body when animating, only display ::before and ::after
+  &.animating {
+    color: transparent;
+    background-color: transparent;
+    user-select: none;
+    cursor: default;
+    animation: hide 0s calc(0.5s + 2s) forwards; // Delay time is the sum of ::before and ::after animation time
+
+    &::before {
+      opacity: 1;
+      animation: squish 0.5s forwards cubic-bezier(0.25, 1.1, 0.73, 1.38);
+    }
+    &::after {
+      opacity: 1;
+      animation: progress 2s 0.5s forwards;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    border-radius: 0.25em;
+    background-color: #2b2d2f;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: 50%;
+    right: 50%;
+    top: 45%;
+    bottom: 45%;
+    border-radius: 200px; // large enough to make it round
+    background-color: white;
+    opacity: 0;
+  }
+}
+
+// Initially make the checkmark looks the same as the progress bar, then do the animation
+.btn.animating + .checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 0;
+  border-radius: 0.25em;
+  background-color: #2b2d2f;
+  animation: change 0.4s calc(0.5s + 2s) forwards;
+
+  svg {
+    width: 25px;
+    stroke: white;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dashoffset: 41; // the length of the path
+    stroke-dasharray: 41;
+    animation: checkmark 0.2s calc(0.5s + 2s + 0.4s + 0.1s) forwards;
+  }
+}
+
+@keyframes squish {
+  100% {
+    left: -25%;
+    right: -25%;
+    top: 45%;
+    bottom: 45%;
+    border-radius: 200px; // large enough to make it round
+  }
+}
+
+@keyframes progress {
+  100% {
+    left: -25%;
+    right: -25%;
+  }
+}
+
+@keyframes hide {
+  100% {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@keyframes change {
+  0% {
+    width: calc(200px * 1.5); // 200px of button width and then stretch 25% to both sides
+    height: calc(80px * 0.1); // 80px of button height and then shrink 45% to both top and bottom
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #71dfbe;
+  }
+}
+
+@keyframes checkmark {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
