@@ -52,6 +52,7 @@ const links = [
   'Switch',
   'Text-Focus-Effect',
   'TikTok-Logo',
+  'Typing-Text',
   'Vertical-Menu',
   'Learning-Masked-Buttons',
   'Learning-Windows-Loading',
@@ -110,7 +111,11 @@ export default function Home() {
       <div className={styles.content}>
         <div className={styles.grid}>
           {links.map((link, index) => (
-            <div className={styles.tile} key={index} onClick={() => router.push(`./${link}`)}>
+            <div
+              className={styles.tile}
+              key={index}
+              onClick={() => router.push(`./${link}`)}
+            >
               <span>{link.replace(/-/g, ' ')}</span>
             </div>
           ))}
