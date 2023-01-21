@@ -13,6 +13,7 @@ import {
   FaComment,
   FaCompress,
   FaGift,
+  FaGithub,
   FaGlasses,
   FaGlobe,
   FaHeart,
@@ -26,37 +27,7 @@ import {
 } from 'react-icons/fa';
 import styles from './styles.module.scss';
 
-const links = [
-  '3D-Card',
-  '3D-Menu',
-  'Calculator',
-  'Cigarette',
-  'Circular-Progress',
-  'Dark-Mode-Menu',
-  'Dashboard',
-  'Dashboard-II',
-  'Delete-Button',
-  'Fingerprint-Scanner',
-  'Glassmorphism-Card',
-  'Indicator',
-  'Iphone-Dynamic-Island',
-  'Keyboard',
-  'Login-Form',
-  'Menu-Expand',
-  'Menu-Expand-II',
-  'Menu-Hover',
-  'Prettier-Logo',
-  'Responsive-Hover',
-  'Rotate-Text',
-  'Submit-Button',
-  'Switch',
-  'Text-Focus-Effect',
-  'TikTok-Logo',
-  'Typing-Text',
-  'Vertical-Menu',
-  'Learning-Masked-Buttons',
-  'Learning-Windows-Loading',
-];
+import { frontendMentor, links } from './Constants';
 
 export default function Home() {
   const router = useRouter();
@@ -111,12 +82,24 @@ export default function Home() {
       <div className={styles.content}>
         <div className={styles.grid}>
           {links.map((link, index) => (
-            <div
-              className={styles.tile}
-              key={index}
-              onClick={() => router.push(`./${link}`)}
-            >
+            <div className={styles.tile} key={index} onClick={() => router.push(`./${link}`)}>
               <span>{link.replace(/-/g, ' ')}</span>
+            </div>
+          ))}
+        </div>
+
+        <hr style={{ margin: '3rem 0' }} />
+
+        <h1 className={styles['frontend-mentor-h1']}>Frontend Mentor Challenges</h1>
+        <div className={styles.grid}>
+          {frontendMentor.map((each, index) => (
+            <div className={`${styles.tile} ${styles['frontend-mentor']}`} key={index}>
+              <span onClick={() => router.push(each.url)}>{each.title}</span>
+              <div className={styles.github}>
+                <a href={each.github} target="_blank" rel="noreferrer">
+                  <FaGithub />
+                </a>
+              </div>
             </div>
           ))}
         </div>
