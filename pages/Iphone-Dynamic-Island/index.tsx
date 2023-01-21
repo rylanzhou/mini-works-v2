@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IoCall } from 'react-icons/io5';
 import styles from './styles.module.scss';
 
-export default function () {
+export default function DynamicIsland() {
   const [active, setActive] = useState(false);
 
   return (
