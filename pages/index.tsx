@@ -31,6 +31,7 @@ const links = [
   '3D-Card',
   '3D-Menu',
   'Calculator',
+  'Car-Chasing',
   'Cigarette',
   'Circular-Progress',
   'Dark-Mode-Menu',
@@ -60,6 +61,11 @@ const links = [
 ];
 
 const frontendMentor = [
+  {
+    title: 'Comment & Vote',
+    url: 'https://frontend-mentor-interactive-comments-section-plum.vercel.app/',
+    github: 'https://github.com/RylanZhou/frontend-mentor-interactive-comments-section',
+  },
   {
     title: 'Expense chart',
     url: 'https://frontend-mentor-expense-chart-component.vercel.app',
