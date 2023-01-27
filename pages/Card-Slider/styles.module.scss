@@ -1,0 +1,117 @@
+.card-groups {
+  width: 30vmin;
+  aspect-ratio: 5/ 7;
+
+  .card-group {
+    position: absolute;
+    width: 30vmin;
+    aspect-ratio: 5 / 7;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &[data-status='after'] {
+      transform: translateX(80%) scale(0);
+    }
+
+    &[data-status='before'] {
+      transform: translateX(-80%) scale(0);
+    }
+
+    &[data-status='ready'] {
+      transform: translateX(-100%) scale(0);
+      transition: none;
+    }
+
+    &[data-status='ready-cancel'] {
+      transform: translateX(100%) scale(0);
+      transition: none;
+    }
+
+    &[data-status='active'] {
+      transition-delay: 0.2s;
+    }
+
+    .card {
+      position: absolute;
+      width: 30vmin;
+      aspect-ratio: 5 / 7;
+      border-radius: 1vmin;
+      box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.2);
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &.small {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10vmin;
+      }
+
+      // Stack big cards with each tilted a bit
+      &:nth-child(2) {
+        transform: translateX(-6%) rotate(-6deg);
+      }
+      &:nth-child(4) {
+        transform: translateX(0) rotate(-3deg);
+      }
+      &:nth-child(6) {
+        transform: translateX(8%) rotate(3deg);
+      }
+      &:nth-child(8) {
+        transform: translateX(10%) rotate(6deg);
+      }
+    }
+
+    &:hover {
+      // Adjust big cards
+      .card.big:nth-child(2) {
+        transform: translate(-70%, 0%) rotate(-20deg);
+      }
+      .card.big:nth-child(4) {
+        transform: translate(-20%, -10%) rotate(-7.5deg);
+      }
+      .card.big:nth-child(6) {
+        transform: translate(20%, -10%) rotate(7.5deg);
+      }
+      .card.big:nth-child(8) {
+        transform: translate(70%, 0%) rotate(20deg);
+      }
+
+      // Adjust small cards
+      .card.small:nth-child(1) {
+        transform: translate(260%, -200%) rotate(-10deg);
+      }
+      .card.small:nth-child(3) {
+        transform: translate(200%, 160%) rotate(8deg);
+      }
+      .card.small:nth-child(5) {
+        transform: translate(-240%, -240%) rotate(7.5deg);
+      }
+      .card.small:nth-child(7) {
+        transform: translate(-340%, 120%) rotate(-6deg);
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10vmin;
+  gap: 4vmin;
+
+  svg {
+    width: 5vmin;
+    height: 5vmin;
+    padding: 1vmin;
+    border-radius: 50%;
+    border: 2px solid #b8b8b8;
+    color: white;
+    cursor: pointer;
+
+    &.like {
+      border-color: rgb(36, 143, 231);
+      color: rgb(36, 143, 231);
+    }
+  }
+}

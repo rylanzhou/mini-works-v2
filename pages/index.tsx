@@ -32,6 +32,7 @@ const links = [
   '3D-Menu',
   'Calculator',
   'Car-Chasing',
+  'Card-Slider',
   'Cigarette',
   'Circular-Progress',
   'Dark-Mode-Menu',
@@ -61,6 +62,11 @@ const links = [
 ];
 
 const frontendMentor = [
+  {
+    title: 'Multi-Step Form',
+    url: 'https://frontend-mentor-multi-step-form-nu.vercel.app/',
+    github: 'https://github.com/RylanZhou/frontend-mentor-multi-step-form',
+  },
   {
     title: 'Comment & Vote',
     url: 'https://frontend-mentor-interactive-comments-section-plum.vercel.app/',
@@ -158,7 +164,11 @@ export default function Home() {
         <div className={styles.grid}>
           {frontendMentor.map((each, index) => (
             <div className={`${styles.tile} ${styles['frontend-mentor']}`} key={index}>
-              <span onClick={() => router.push(each.url)}>{each.title}</span>
+              <span>
+                <a href={each.url} target="_blank" rel="noreferrer">
+                  {each.title}
+                </a>
+              </span>
               <div className={styles.github}>
                 <a href={each.github} target="_blank" rel="noreferrer">
                   <FaGithub />
