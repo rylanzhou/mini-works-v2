@@ -7,6 +7,7 @@ $transition: all 0.75s ease;
   justify-content: center;
   align-items: center;
   width: 50%;
+  perspective: 1000px;
 
   .card {
     height: 50rem;
@@ -23,6 +24,7 @@ $transition: all 0.75s ease;
       justify-content: center;
       align-items: center;
       min-height: 20rem;
+      transform-style: preserve-3d;
 
       .circle {
         position: absolute;
@@ -41,6 +43,8 @@ $transition: all 0.75s ease;
     }
 
     .info {
+      transform-style: preserve-3d;
+
       h1 {
         font-size: 3rem;
         transform: translateZ(0);
