@@ -68,9 +68,19 @@ const frontendMentor = [
     github: 'https://github.com/RylanZhou/frontend-mentor-multi-step-form',
   },
   {
+    title: 'E-commerce Page',
+    url: 'https://frontend-mentor-ecommerce-product-page-woad.vercel.app/',
+    github: 'https://github.com/rylanzhou/frontend-mentor-ecommerce-product-page',
+  },
+  {
     title: 'Comment & Vote',
     url: 'https://frontend-mentor-interactive-comments-section-plum.vercel.app/',
     github: 'https://github.com/RylanZhou/frontend-mentor-interactive-comments-section',
+  },
+  {
+    title: 'Interactive card',
+    url: 'https://frontend-mentor-interactive-card-details-form-nine.vercel.app/',
+    github: 'https://github.com/RylanZhou/frontend-mentor-interactive-card-details-form',
   },
   {
     title: 'Expense chart',
@@ -78,14 +88,14 @@ const frontendMentor = [
     github: 'https://github.com/RylanZhou/frontend-mentor-expense-chart-component',
   },
   {
+    title: 'Time Tracking',
+    url: 'https://frontend-mentor-time-tracking-dashboard-ivory.vercel.app/',
+    github: 'https://github.com/rylanzhou/frontend-mentor-time-tracking-dashboard',
+  },
+  {
     title: 'Intro section',
     url: 'https://frontend-mentor-intro-section-with-dropdown-navigation-kappa.vercel.app/',
     github: 'https://github.com/RylanZhou/frontend-mentor-intro-section-with-dropdown-navigation',
-  },
-  {
-    title: 'Interactive card',
-    url: 'https://frontend-mentor-interactive-card-details-form-nine.vercel.app/',
-    github: 'https://github.com/RylanZhou/frontend-mentor-interactive-card-details-form',
   },
   {
     title: 'Notifications',
