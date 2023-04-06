@@ -63,7 +63,7 @@
             transition: 0.5s;
           }
 
-          p {
+          .text {
             margin: 0;
             font-size: 0.6em;
             color: #fff;
@@ -107,7 +107,7 @@
         width: 200px;
         height: 25px;
 
-        .details p,
+        .details .text,
         .action {
           visibility: visible;
           opacity: 1;
@@ -123,7 +123,7 @@
         padding: 0 3px;
         overflow: hidden;
 
-        .details p,
+        .details .text,
         .action {
           visibility: visible;
           opacity: 1;
@@ -138,7 +138,7 @@
             margin-right: 12px;
           }
 
-          p div {
+          .text div {
             display: block;
             visibility: visible;
             opacity: 1;

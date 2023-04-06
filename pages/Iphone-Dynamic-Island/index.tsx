@@ -18,9 +18,9 @@ export default function DynamicIsland() {
                 <div className={styles.img}>
                   <img src="https://joeschmoe.io/api/v1/1" alt="Logo" />
                 </div>
-                <p>
+                <div className={styles.text}>
                   <div>iPhone</div>Rylan Zhou
-                </p>
+                </div>
               </div>
               <div className={styles.action}>
                 <IoCall className={styles.red} />
