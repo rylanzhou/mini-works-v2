@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import {
   FaAddressBook,
   FaBalanceScale,
@@ -28,7 +29,6 @@ import {
 import styles from './styles.module.scss';
 
 const links = [
-  '3D-Card',
   '3D-Menu',
   'Calculator',
   'Car-Chasing',
@@ -112,6 +112,33 @@ const frontendMentor = [
 export default function Home() {
   const router = useRouter();
 
+  // jump to anchor point if it exists
+  useEffect(() => {
+    const anchor = sessionStorage.getItem('anchor');
+
+    if (anchor) {
+      const element = document.getElementById(anchor);
+
+      if (element) {
+        element.scrollIntoView();
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      const { scrollY } = window;
+
+      console.log(scrollY);
+    });
+  }, []);
+
+  // save anchor point before jumping to another page
+  const beforeJump = (anchor: string) => {
+    // store the anchor point in session storage
+    sessionStorage.setItem('anchor', anchor);
+
+    router.push(`./${anchor}`);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.background}>
@@ -162,7 +189,7 @@ export default function Home() {
       <div className={styles.content}>
         <div className={styles.grid}>
           {links.map((link, index) => (
-            <div className={styles.tile} key={index} onClick={() => router.push(`./${link}`)}>
+            <div className={styles.tile} id={link} key={index} onClick={() => beforeJump(link)}>
               <span>{link.replace(/-/g, ' ')}</span>
             </div>
           ))}
