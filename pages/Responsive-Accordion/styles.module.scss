@@ -1,0 +1,131 @@
+$transition: all 0.5s cubic-bezier(0.27, 0.01, 0.09, 1.01);
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  height: 50dvh;
+  min-height: 400px;
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 70px;
+    height: 100%;
+    border-radius: 50px;
+    overflow: hidden;
+    background-image: var(--image-url);
+    background-size: auto 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: $transition;
+    cursor: pointer;
+
+    &[aria-hidden='false'] {
+      align-items: start;
+      width: 50dvw;
+      height: 53dvh;
+      min-height: 425px;
+      background-size: auto 100%;
+
+      .content {
+        padding: calc(12px + 1.5dvh);
+        background: linear-gradient(
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.2) 15%,
+          rgba(0, 0, 0, 0.6) 80%
+        );
+
+        .text {
+          opacity: 1;
+        }
+      }
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      width: 100%;
+      color: #f1f1f1;
+
+      transition: $transition;
+
+      .icon {
+        display: grid;
+        place-items: center;
+        padding: 12px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        background-color: white;
+
+        &[data-name='hiking'] {
+          color: #e74c3c;
+        }
+        &[data-name='winter'] {
+          color: #3498db;
+        }
+        &[data-name='summer'] {
+          color: #e67e22;
+        }
+        &[data-name='rain'] {
+          color: #bdc3c7;
+        }
+        &[data-name='forest'] {
+          color: #16a085;
+        }
+      }
+
+      .text {
+        position: absolute;
+        flex: 1;
+        left: 90px;
+        opacity: 0;
+
+        transition: opacity 0.3s;
+        transition-delay: 0.1s;
+
+        h4 {
+          margin: 0;
+          margin-top: 0.3rem;
+          text-transform: uppercase;
+        }
+
+        span {
+          display: inline-block;
+          margin-top: 0.3rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 796px) {
+    flex-direction: column;
+    width: 80dvw;
+    height: unset;
+    min-height: unset;
+
+    .accordion {
+      width: 100%;
+      height: 70px;
+      background-size: 120% auto;
+
+      &[aria-hidden='false'] {
+        width: calc(100% + 5dvw);
+        height: 30dvh;
+        min-height: unset;
+        background-size: 100% auto;
+      }
+
+      .content {
+        justify-content: flex-start;
+        padding-left: 10px;
+      }
+    }
+  }
+}

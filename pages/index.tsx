@@ -49,6 +49,7 @@ const links = [
   'Menu-Expand-II',
   'Menu-Hover',
   'Prettier-Logo',
+  'Responsive-Accordion',
   'Responsive-Hover',
   'Rotate-Text',
   'Submit-Button',
@@ -123,12 +124,6 @@ export default function Home() {
         element.scrollIntoView();
       }
     }
-
-    window.addEventListener('scroll', () => {
-      const { scrollY } = window;
-
-      console.log(scrollY);
-    });
   }, []);
 
   // save anchor point before jumping to another page
