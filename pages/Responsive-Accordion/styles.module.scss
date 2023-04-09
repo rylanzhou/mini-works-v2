@@ -94,11 +94,13 @@ $transition: all 0.5s cubic-bezier(0.27, 0.01, 0.09, 1.01);
           margin: 0;
           margin-top: 0.3rem;
           text-transform: uppercase;
+          white-space: nowrap;
         }
 
         span {
           display: inline-block;
           margin-top: 0.3rem;
+          white-space: nowrap;
         }
       }
     }
