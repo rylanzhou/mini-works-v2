@@ -1,5 +1,6 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   FaAddressBook,
   FaBalanceScale,
