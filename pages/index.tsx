@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import {
   FaAddressBook,
   FaBalanceScale,
@@ -113,25 +113,22 @@ const frontendMentor = [
 export default function Home() {
   const router = useRouter();
 
-  // jump to anchor point if it exists
+  const contentRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    // fetch anchor point and scroll to that point
     const anchor = sessionStorage.getItem('anchor');
-
     if (anchor) {
-      const element = document.getElementById(anchor);
-
-      if (element) {
-        element.scrollIntoView();
-      }
+      contentRef.current?.scrollTo(0, parseInt(anchor));
     }
   }, []);
 
   // save anchor point before jumping to another page
-  const beforeJump = (anchor: string) => {
+  const beforeJump = (link: string) => {
     // store the anchor point in session storage
-    sessionStorage.setItem('anchor', anchor);
+    sessionStorage.setItem('anchor', contentRef.current?.scrollTop.toString() || '0');
 
-    router.push(`./${anchor}`);
+    router.push(`./${link}`);
   };
 
   return (
@@ -181,7 +178,7 @@ export default function Home() {
         <h1 className={styles['mini-pages']}>Mini Pages</h1>
       </div>
 
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentRef}>
         <div className={styles.grid}>
           {links.map((link, index) => (
             <div className={styles.tile} id={link} key={index} onClick={() => beforeJump(link)}>
