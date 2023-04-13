@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import {
   FaAddressBook,
   FaBalanceScale,
@@ -122,6 +122,21 @@ export default function Home() {
     if (anchor) {
       contentRef.current?.scrollTo(0, parseInt(anchor));
     }
+
+    // observe and animate each tile that is in viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles['tile-active']);
+        } else {
+          entry.target.classList.remove(styles['tile-active']);
+        }
+      });
+    });
+
+    contentRef.current?.querySelectorAll(`.${styles.tile}`).forEach((element) => {
+      observer.observe(element);
+    });
   }, []);
 
   // save anchor point before jumping to another page
