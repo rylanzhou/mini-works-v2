@@ -1,0 +1,144 @@
+$begin-color: hsl(130, 75%, 75%);
+$end-color: hsl(60, 75%, 40%);
+$count: 200;
+
+:export {
+  count: $count;
+}
+
+.container {
+  position: relative;
+  padding: 20px;
+  filter: blur(3px) contrast(3);
+  background-color: black;
+  animation: hue-rotate 8s infinite linear;
+
+  .arc {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    // create a sector
+    background: conic-gradient(
+      $begin-color 0,
+      $begin-color 2%,
+      hsl(120, 75%, 70%),
+      hsl(110, 75%, 65%),
+      hsl(100, 75%, 60%),
+      hsl(90, 75%, 55%),
+      hsl(80, 75%, 50%),
+      hsl(70, 75%, 45%),
+      $end-color 16%,
+      $end-color 18%,
+      transparent 18%
+    );
+
+    // use mask to create an arc
+    mask: radial-gradient(transparent, transparent 119px, #000 120px, #000 120px, #000 100%);
+    // rotate the arc, so that it can combine with the bubbles
+    animation: rotate 4s linear -700ms infinite;
+
+    // ::before to create circular anchor
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 135px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: $begin-color;
+    }
+  }
+
+  .bubbles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+    .bubble {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background-color: $end-color;
+
+      @for $i from 1 through $count {
+        &:nth-child(#{$i}) {
+          --delay: calc(4000 * #{$i} / #{$count} * -1ms);
+
+          // align all bubbles into a circle
+          --rotate: calc(#{360 / $count} * #{$i} * 1deg);
+          transform: rotateZ(var(--rotate)) translate(135px, 0);
+
+          // scatter bubbles
+          --width: 30px;
+          --scale: #{random(10) / 10 + 0.4};
+          --x: #{random(200) - 100}px;
+          --y: #{random(200) - 100}px;
+
+          width: var(--width);
+          height: var(--width);
+          opacity: 1;
+
+          // width: $size;
+          // height: $size;
+          // animation: scatter
+          //   #{(random(1500) + 1500) /
+          //   1000}s
+          //   ease-in-out -#{random(3000) /
+          //   1000}s
+          //   infinite;
+          animation: showAndHide 4s linear var(--delay) infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes hue-rotate {
+  100% {
+    filter: blur(3px) contrast(3) hue-rotate(360deg);
+  }
+}
+
+@keyframes scatter {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotateZ(var(--rotate)) translate(-50%, var(--distance));
+    opacity: 0;
+  }
+}
+
+@keyframes showAndHide {
+  0% {
+    transform: rotateZ(var(--rotate)) translate(135px, 0);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  75.1% {
+    transform: rotateZ(var(--rotate)) translate(135px, 0) scale(var(--scale));
+    opacity: 1;
+  }
+  100% {
+    transform: rotateZ(var(--rotate)) translate(calc(135px + var(--x)), var(--y)) scale(0.2);
+    opacity: 0;
+  }
+}

@@ -31,6 +31,7 @@ import styles from './styles.module.scss';
 
 const links = [
   '3D-Menu',
+  'Bubble-Loading',
   'Calculator',
   'Car-Chasing',
   'Card-Slider',
