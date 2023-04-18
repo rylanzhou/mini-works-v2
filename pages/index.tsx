@@ -198,8 +198,10 @@ export default function Home() {
       <div className={styles.content} ref={contentRef}>
         <div className={styles.grid}>
           {links.map((link, index) => (
-            <div className={styles.tile} id={link} key={index} onClick={() => beforeJump(link)}>
-              <span>{link.replace(/-/g, ' ')}</span>
+            <div className={styles['tile-container']} key={index}>
+              <div className={styles.tile} id={link} onClick={() => beforeJump(link)}>
+                <span>{link.replace(/-/g, ' ')}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -209,16 +211,18 @@ export default function Home() {
         <h1 className={styles['frontend-mentor-h1']}>Frontend Mentor Challenges</h1>
         <div className={styles.grid}>
           {frontendMentor.map((each, index) => (
-            <div className={`${styles.tile} ${styles['frontend-mentor']}`} key={index}>
-              <span>
-                <a href={each.url} target="_blank" rel="noreferrer">
-                  {each.title}
-                </a>
-              </span>
-              <div className={styles.github}>
-                <a href={each.github} target="_blank" rel="noreferrer">
-                  <FaGithub />
-                </a>
+            <div className={styles['tile-container']} key={index}>
+              <div className={`${styles.tile} ${styles['frontend-mentor']}`}>
+                <span>
+                  <a href={each.url} target="_blank" rel="noreferrer">
+                    {each.title}
+                  </a>
+                </span>
+                <div className={styles.github}>
+                  <a href={each.github} target="_blank" rel="noreferrer">
+                    <FaGithub />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
