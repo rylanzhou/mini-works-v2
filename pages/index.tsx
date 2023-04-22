@@ -56,6 +56,7 @@ const links = [
   'Rotate-Text',
   'Submit-Button',
   'Switch',
+  'Switch-Day-Night',
   'Text-Focus-Effect',
   'TikTok-Logo',
   'Typing-Text',
